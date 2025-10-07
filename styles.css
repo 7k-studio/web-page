@@ -3,12 +3,26 @@ body, html {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
+  line-height: 2.5cap;
 }
+
+:root {
+  --darker: #28526F;
+  --dark: #4084AB;
+  --light: #60B1E0;
+  --soft:   #C0D6E2;
+  --highlight: #FFDFBE;
+  --white: #faf6f5;
+  --grey: #CCCCCC;
+}
+
+
+h1, h2, h3, h4, h5, h6 {font-family:Georgia, serif;}
 
 /* Navbar */
 .navbar {
   overflow: hidden;
-  background-color: #222;
+  background-color: var(--dark);
   position: fixed;
   top: 0;
   width: 100%;
@@ -23,16 +37,16 @@ body, html {
   text-decoration: none;
 }
 .navbar a:hover {
-  background: #444;
+  background: var(--soft);
   color: white;
 }
 
 /* Hero section */
 .hero-image {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("wing-bg.jpg");
+  background: var(--light);
   background-size: cover;
   background-position: center;
-  height: 60vh;
+  height: 40vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,24 +74,28 @@ body, html {
   border-radius: 6px;
 }
 .btn-primary {
-  background-color: #ffcc33;
+  background-color: var(--highlight);
+  color: var(--darker);
+  font-weight: bolder;
 }
 .btn-primary:hover {
-  background-color: #e6b92d;
+  background-color: var(--grey);
 }
 .btn-outline {
   background-color: transparent;
-  border: 2px solid white;
+  border: 2px solid var(--white);
   color: white;
+  font-weight: bolder;
 }
 .btn-outline:hover {
-  background-color: white;
+  background-color: var(--white);
   color: black;
 }
 
 /* Section spacing */
 .section {
   padding: 60px 40px;
+  background-color: var(--white);
 }
 .section h2 {
   text-align: center;
@@ -97,7 +115,7 @@ body, html {
   max-width: 320px;
   margin: 15px;
   padding: 24px;
-  background-color: #fafafa;
+  background-color: var(--white);
   border-radius: 8px;
 }
 .card h3 {
@@ -105,4 +123,70 @@ body, html {
 }
 .card p {
   margin: 8px 0 0;
+}
+
+/* Airfoil Designer */
+.airfoil-designer-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-text {
+    flex: 1;
+    text-align: left;
+}
+
+.section-image {
+    flex: 1;
+    text-align: center;
+}
+
+.section-image img {
+    max-height: 350px;
+    height: auto;
+}
+
+footer {
+  display: flex;
+  padding: 10px;
+  background-color: var(--dark);
+  justify-content: center; /* Center content horizontally */
+}
+
+.footer-note{
+  display: flex;
+  font-size: 0.8em;
+  color: #fff;
+  align-items: center;
+  text-align: center;
+}
+
+.blocks {
+  background: #F2EFEE;
+  padding: 15px;
+  color: #000;
+}
+
+.blocks header {
+  padding: 15px;
+  font-size: xx-large;
+  font-weight: bold;
+  font-family:Georgia, serif;
+  text-align: center;
+}
+
+#mission {
+  display: flex; /* Enable flexbox layout */
+  flex-direction: row; /* Align children in a row */
+  gap: 20px; /* Add spacing between blocks */
+  background-color: #222; /* Retain background color */
+}
+
+#about img {
+  display: block; /* Treat the image as a block element */
+  margin: 0 auto; /* Center the image horizontally */
 }
