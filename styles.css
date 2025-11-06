@@ -16,6 +16,50 @@ body, html {
   --grey: #CCCCCC;
 }
 
+@media (max-width: 1024px) {
+  .section .body {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* Make content blocks full width when stacked */
+  .section .body .section-image,
+  .section .body .section-text,
+  .section .body .text {
+    width: 100%;
+  }
+
+  /* Default: image below text (use .image-first on .section to place image above) */
+  .section .body .section-image { order: 1; }
+  .section .body .section-text,
+  .section .body .text { order: 0; }
+
+  /* If you want the image above the text, add .image-first to the .section element */
+  .section.image-first .body .section-image { order: 0; }
+  .section.image-first .body .section-text,
+  .section.image-first .body .text { order: 1; }
+
+  /* Make images scale nicely */
+  .section-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+  }
+
+  /* Tweak mission and cards layout for small screens */
+  #mission { flex-direction: column; gap: 16px; }
+  #mission .blocks { width: 100%; border-radius: 12px; }
+  .row { flex-direction: column; align-items: center;}
+  /* Keep cards sized to their content on small screens */
+  .card {
+   max-width: 640px;
+   width: auto;        /* don't force full width */
+   flex: 0 0 auto;     /* prevent stretching in column layout */
+    align-self: center; /* keep cards centered */
+  }
+  .section { padding: 40px 20px; }
+}
 
 h1, h2, h3, h4, h5, h6 {font-family:Georgia, serif;}
 
@@ -97,6 +141,19 @@ h1, h2, h3, h4, h5, h6 {font-family:Georgia, serif;}
   padding: 60px 40px;
   background-color: var(--white);
 }
+
+.section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.section .header{
+  max-width: 1200px;
+  justify-content: center;
+}
+
 .section h2 {
   text-align: center;
   margin-bottom: 30px;
@@ -109,6 +166,7 @@ h1, h2, h3, h4, h5, h6 {font-family:Georgia, serif;}
   justify-content: center;
   flex-wrap: wrap;
 }
+
 .card {
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   flex: 1 1 280px;
@@ -126,7 +184,7 @@ h1, h2, h3, h4, h5, h6 {font-family:Georgia, serif;}
 }
 
 /* Airfoil Designer */
-.airfoil-designer-container {
+.section .body {
     display: flex;
     align-items: center;
     justify-content: space-between;
